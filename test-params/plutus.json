@@ -1,0 +1,89 @@
+{
+  "preamble": {
+    "title": "waalge/test-params",
+    "description": "Aiken contracts for project 'waalge/test-params'",
+    "version": "0.0.0",
+    "plutusVersion": "v2",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.0.20-alpha+unknown"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "with_params.spend",
+      "datum": {
+        "title": "dat",
+        "schema": {
+          "$ref": "#/definitions/ByteArray"
+        }
+      },
+      "redeemer": {
+        "title": "_red",
+        "schema": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "parameters": [
+        {
+          "title": "params",
+          "schema": {
+            "$ref": "#/definitions/with_params~1Params"
+          }
+        }
+      ],
+      "compiledCode": "5876010000323232322222325333006323232323371e00a66646464446600a6600a002002660060040026002002444a66601c66e1c00920001001133300300333702004900119b8b00200122337140040020060026eb8c02c004c02c008dd6980480098039baa00514984d958dd7001ab9a5573cae855d11",
+      "hash": "567b4093f6769b659ed0d7586cb87d5f31aabadb191b72bcee3ae8e6"
+    },
+    {
+      "title": "without_params.spend",
+      "datum": {
+        "title": "dat",
+        "schema": {
+          "$ref": "#/definitions/ByteArray"
+        }
+      },
+      "redeemer": {
+        "title": "_red",
+        "schema": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "compiledCode": "5828010000322223253330053371e00291010c0102030102030102030102030014984d958dd7001ab9a1",
+      "hash": "a3eda90b39ca6934c6b90f8fa2db4a80d89db3a9890aa025ca7f8e19"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "Data": {
+      "title": "Data",
+      "description": "Any Plutus data."
+    },
+    "Int": {
+      "dataType": "integer"
+    },
+    "with_params/Params": {
+      "title": "Params",
+      "anyOf": [
+        {
+          "title": "Params",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "some_int",
+              "$ref": "#/definitions/Int"
+            },
+            {
+              "title": "some_bytes",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
